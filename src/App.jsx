@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import Home from './pages/Home'
 import Collection from './pages/Collection'
 import Cart from './pages/Cart'
@@ -15,9 +15,27 @@ import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
 
 const App = () => {
+  let [light,setLight]=useState(false)
+  let [bgcolor,setbgcolor]=useState('white')
+  let [clr,setclr]=useState('black')
+  let lightref=useRef()
+  let lightfun=()=>{
+    if(light==false){
+      setLight(true)
+      setbgcolor('pink')
+      setclr('black')
+    }
+    else{
+      setLight(false)
+      setbgcolor('white')
+      setclr('black')
+    }
+  }
   return (
-    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
-      <Navbar />
+    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'ref={lightref}
+    style={{background:bgcolor,color:clr}}
+    >
+      <Navbar lightfun={lightfun}/>
       <SearchBar />
       <Routes>
         <Route path='/' element={<Home />} />

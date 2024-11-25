@@ -4,7 +4,7 @@ import logo from '../assets/admin_assets/lifestylelogo.png';
 import { Link, NavLink } from 'react-router-dom';
 import { ShopContext } from '../contaxt/ShopContext';
 
-const Navbar = () => {
+const Navbar = ({lightfun}) => {
     const [visible, setVisible] = useState(false);
 
     const { setShowSearch, getCount } = useContext(ShopContext)
@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="sticky top-0 z-50 flex items-center justify-between py-5 font-medium bg-white">
 
             {/* Logo */}
-            <Link to='/'><img src={logo} alt="logo" className="w-28" /></Link>
+            <Link to='/' onClick={lightfun}><img src={logo} alt="logo" className="w-28" /></Link>
 
             {/* Desktop Menu */}
             <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
