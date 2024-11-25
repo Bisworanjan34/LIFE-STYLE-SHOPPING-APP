@@ -4,13 +4,13 @@ import logo from '../assets/admin_assets/lifestylelogo.png';
 import { Link, NavLink } from 'react-router-dom';
 import { ShopContext } from '../contaxt/ShopContext';
 
-const Navbar = ({lightfun}) => {
+const Navbar = ({lightfun,bgcolor}) => {
     const [visible, setVisible] = useState(false);
 
     const { setShowSearch, getCount } = useContext(ShopContext)
 
     return (
-        <div className="sticky top-0 z-50 flex items-center justify-between py-5 font-medium bg-white">
+        <div className="sticky top-0 z-50 flex items-center justify-between py-5 font-medium " style={{background:bgcolor}}>
 
             {/* Logo */}
             <Link to='/' onClick={lightfun}><img src={logo} alt="logo" className="w-28" /></Link>

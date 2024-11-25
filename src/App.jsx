@@ -35,7 +35,7 @@ const App = () => {
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'ref={lightref}
     style={{background:bgcolor,color:clr}}
     >
-      <Navbar lightfun={lightfun}/>
+      <Navbar lightfun={lightfun} bgcolor={bgcolor}/>
       <SearchBar />
       <Routes>
         <Route path='/' element={<Home />} />
