@@ -15,7 +15,7 @@ const LetestCollection = () => {
     return (
         <div className=" text-center py-8 text-3xl">
             <Title text1={"LATEST"} text2={'COLLECTION'} />
-            <p className=" w-3/4 m-auto text-xs sm:text-xs md:text-base text-gray-600">
+            <p className=" w-3/4 m-auto text-xs sm:text-xs md:text-base text-gray-600 mb-10">
                 A paragraph is a group of sentences that support a main idea  of writing.
             </p>
             <div>
