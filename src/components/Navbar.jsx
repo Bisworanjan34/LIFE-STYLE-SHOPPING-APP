@@ -4,7 +4,7 @@ import logo from '../assets/admin_assets/lifestylelogo.png';
 import { Link, NavLink } from 'react-router-dom';
 import { ShopContext } from '../contaxt/ShopContext';
 
-const Navbar = ({lightfun,bgcolor}) => {
+const Navbar = ({lightfun,toggleref,bgcolor}) => {
     const [visible, setVisible] = useState(false);
 
     const { setShowSearch, getCount } = useContext(ShopContext)
@@ -13,7 +13,7 @@ const Navbar = ({lightfun,bgcolor}) => {
         <div className="sticky top-0 z-50 flex items-center justify-between py-5 font-medium " style={{background:bgcolor}}>
 
             {/* Logo */}
-            <Link to='/' onClick={lightfun}><img src={logo} alt="logo" className="w-28" /></Link>
+            <Link to='/'><img src={logo} alt="logo" className="w-28" /></Link>
 
             {/* Desktop Menu */}
             <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
@@ -38,6 +38,13 @@ const Navbar = ({lightfun,bgcolor}) => {
             {/* Icons (Search, Profile, Cart, Menu) */}
             <div className="flex items-center gap-6">
                 {/* Search Icon */}
+
+                <div className="toggle-div h-[20px] w-[50px] bg-slate-400 rounded-xl" ref={toggleref}  onClick={lightfun}>
+                    <div className="toggle h-[20px] w-[20px] bg-slate-300 rounded-full "></div>
+                </div>
+
+
+
                 <Link to="/collection">
                     <img onClick={() => setShowSearch(true)} src={assets.search_icon} className="w-5 cursor-pointer" alt="Search Icon" />
                 </Link>

@@ -18,24 +18,26 @@ const App = () => {
   let [light,setLight]=useState(false)
   let [bgcolor,setbgcolor]=useState('white')
   let [clr,setclr]=useState('black')
-  let lightref=useRef()
+  let toggleref=useRef()
   let lightfun=()=>{
     if(light==false){
       setLight(true)
       setbgcolor('pink')
       setclr('black')
+      toggleref.current.classList.add('active')
     }
     else{
       setLight(false)
       setbgcolor('white')
       setclr('black')
+      toggleref.current.classList.remove('active')
     }
   }
   return (
-    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'ref={lightref}
+    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'
     style={{background:bgcolor,color:clr}}
     >
-      <Navbar lightfun={lightfun} bgcolor={bgcolor}/>
+      <Navbar lightfun={lightfun} bgcolor={bgcolor} toggleref={toggleref}/>
       <SearchBar />
       <Routes>
         <Route path='/' element={<Home />} />
